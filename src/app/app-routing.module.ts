@@ -6,11 +6,11 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path:'logIn',
+    path:'',
     component:LayoutComponent,
     children:[
       {
-        path: 'logIn',
+        path: '',
         loadChildren: () =>
           import('./log-in/log-in.module').then(
             (m) => m.LogInModule
@@ -24,7 +24,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: '',
+        path: 'home',
         loadChildren: () =>
           import('./home/home.module').then(
             (m) => m.HomeModule
