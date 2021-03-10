@@ -1,1 +1,82 @@
-<p>sign-in works!</p>
+<div class="fondo-azul d-flex h-100vh align-items-center justify-content-center fadeIn animated">
+
+  <div class="container px-0 w-820 bg-white shadows--02 br-radius-16 pt-5">
+    <h1 class="text-center mb-4">Sign up</h1>
+    <form  [formGroup]="loginForm">
+      <div class="px-3 px-md-5">
+        <div class="input-group mb-3">
+          <div class="row w-100 mx-0">
+            <div class="col">
+              <mat-form-field appearance="legacy" class="w-100" required>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter Name">
+                <!-- <mat-hint>Hint</mat-hint> -->
+               </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="legacy" class="w-100" required>
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Enter last name">
+                 <!--  <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+          </div>
+        </div>
+  
+        <div class="input-group mb-3">
+          <div class="row w-100 mx-0">
+            <div class="col">
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+  
+        <div class="input-group mb-3">
+          <div class="row w-100 mx-0">
+            <div class="col">
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+  
+        <div class="input-group mb-3">
+          <div class="row w-100 mx-0">
+            <div class="col">
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-3 px-md-5 my-3">
+        <a routerLink="/logIn" class="blue-1">
+            ¿Ya tienes cuenta? / Ingresar
+        </a>
+      </div>
+
+      <div class="bg-blue-1 br-bt-radius-14 py-3">
+        <div class="example-button-row d-flex justify-content-center px-3 px-md-5">
+          <button mat-raised-button class="blue-1 w-100" style=" max-width: 500px;">create account</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
