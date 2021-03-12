@@ -10,14 +10,14 @@ const routes: Routes = [
     component:LayoutComponent,
     children:[
       {
-        path: 'logIn',
+        path: '',
         loadChildren: () =>
           import('./log-in/log-in.module').then(
             (m) => m.LogInModule
           ),
       },
       {
-        path: '',
+        path: 'signUp',
         loadChildren: () =>
           import('./sign-in/sign-in.module').then(
             (m) => m.SignInModule
