@@ -1,6 +1,10 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { RouterLinkActive, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { interval } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-sign-in',
@@ -9,8 +13,14 @@ import { RouterLinkActive, Router } from '@angular/router';
 export class SignInComponent implements OnInit {
 
   loader:boolean;
+  opacity:boolean;
+  opacityIn:boolean;
+  opacityForm:boolean;
+  moveAnimate:boolean;
   signUpForm:FormGroup;
   hide = true;
+
+
 
   constructor(private _router:Router,
               private formBuilder:FormBuilder) { }
@@ -18,6 +28,9 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.loading();
     this.GroupSignUp();
+    this.moveAnimate = true;
+    this.opacityIn = false;
+    this.opacityForm = false;
   }
 
 
@@ -39,16 +52,22 @@ export class SignInComponent implements OnInit {
 
   loading() {
     this.loader = true;
+    this.opacity = true;
     setTimeout(() => {
-      this.texto();
-     
-    }, 5500);
+      this.loader = false;
+      console.log("se cumple")
+      this.animation()
+    }, 6500);
   }
-
-
-  texto(){
+  
+  animation(){
     console.log("ENTRO")
-    this.loader = false;
+    this.opacityIn = true;
+    setTimeout(() => {
+      this.opacity = false;
+      this.opacityForm = true;
+    }, 4500);
+    this.moveAnimate = true;
   }
 
   getErrorMessage() {

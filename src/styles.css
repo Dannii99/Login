@@ -1571,13 +1571,13 @@
   animation-name: slideOutUp;
 }
 
-
+/* 
 .galaxy-fondo {
   background-image: url(../src/assets/image/galaxi-fondo.png);
   background-size: cover;
   background-position: center;
 }
-
+ */
 .fondo-azul {
   background-image: url(../src/assets/image/fondo-Azul.png);
   background-size: cover;
@@ -1611,17 +1611,6 @@ mat-form-field.mat-form-field {
 
 
 /* ============ Loader ============ */
-
-.container-loader {
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9998;
-  width: 100%;
-  height: 100vh;
-}
-
 /* .loader {
   background-image: url(../src/assets/image/marciano.png);
   background-size: 300px;
@@ -1642,8 +1631,8 @@ mat-form-field.mat-form-field {
 
   -webkit-animation-name: parpadeo;
   -webkit-animation-duration: 2s;
-  -webkit-animation-timing-function: ease-in;
   -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in;
 }
 
 @-moz-keyframes parpadeo{  
@@ -1664,59 +1653,226 @@ mat-form-field.mat-form-field {
   100% { opacity: 1.0; }
 } */
 
+
+.container-loader {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  animation-name: opacity;
+  animation-duration: 11s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes opacity{
+  0% {
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+.container-galaxy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-out{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.galaxi-out {
+  background-image: url(../src/assets/image/galaxi-afuera.png);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  display: flex;
+  z-index: 9999;
+  width: 600px;
+  height: 600px;
+  position: relative;
+  animation-name: girar-galaxy-out;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: girar-galaxy-out;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+} 
+
+.scala-out {
+  transform: scale(0.8);
+  display: none;
+  position: relative;
+  left: 51%;
+  animation-name: scala-in;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scala-in{
+  0% {
+    opacity: 0;
+  }
+  65%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes girar-galaxy-out {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+   
+  }
+}
+
+.galaxi-bot {
+  background-image: url(../src/assets/image/galaxi-adentro.png);
+  background-size: 140px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  animation-name: girar-galaxy-bot;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+  -webkit-animation-name:  girar-galaxy-bot;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+
+@keyframes girar-galaxy-bot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.move-animate {
+  position: relative;
+  animation-name: move-right;
+  animation-duration: 12s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move-right {
+  0%{
+    left: 0px;
+  }
+  60% {
+    left: 0px;
+    transform: scale(1);
+  }
+  99%{
+    transform: scale(1.3);
+    left: 90%;
+  }
+  100%{
+    display: none;
+  }
+}
+
+
 .tierra {
   background-image: url(../src/assets/image/tierra.png);
-  background-size: 80px;
-  background-repeat: no-repeat;
+  background-size: 35px;
   position: absolute;
-  bottom: 45%;
-  right: 45%;
-  margin: auto;
-  width: 200px;
-  height: 200px;
+  background-repeat: no-repeat;
+  width: 105px;
+  height: 105px;
 }
 
 .luna {
   background-image: url(../src/assets/image/luna.png);
-  background-size: 80px;
-  background-repeat: no-repeat;
+  background-size: 35px;
   position: absolute;
-  bottom: 45%;
-  right: 45%;;
-  margin: auto;
-  width: 200px;
-  height: 200px;
+  background-repeat: no-repeat;
+  width: 105px;
+  height: 105px;
 }
 
 .martes {
   background-image: url(../src/assets/image/martes.png);
-  background-size: 80px;
-  background-repeat: no-repeat;
+  background-size: 35px;
   position: absolute;
-  bottom: 45%;
-  right: 45%;
-  margin: auto;
-  width: 200px;
-  height: 200px;
+  background-repeat: no-repeat;
+  width: 105px;
+  height: 105px;
 }
 
 .preloader-tierra {
   animation-name: girar-tierra;
-  animation-duration: 2s;
+  animation-duration: 3.5s;
   animation-iteration-count: infinite;
-  /* animation-timing-function: linear; */
+/*   animation-timing-function: linear; */
+  -webkit-animation-name:  girar-tierra;
+  -webkit-animation-duration: 3.5s;
+  -webkit-animation-iteration-count: infinite;
+/*   -webkit-animation-timing-function: linear; */
 }
 .preloader-luna {
   animation-name: girar-luna;
-  animation-duration: 2s;
+  animation-duration: 3.5s;
   animation-iteration-count: infinite;
- /*  animation-timing-function: linear; */
+/*   animation-timing-function: linear; */
+  -webkit-animation-name:  girar-luna;
+  -webkit-animation-duration: 3.5s;
+  -webkit-animation-iteration-count: infinite;
+ /*  -webkit-animation-timing-function: linear; */
 }
 .preloader-martes {
   animation-name: girar-martes;
-  animation-duration: 2s;
+  animation-duration: 3.5s;
   animation-iteration-count: infinite;
 /*   animation-timing-function: linear; */
+  -webkit-animation-name:  girar-martes;
+  -webkit-animation-duration: 3.5s;
+  -webkit-animation-iteration-count: infinite;
+/*   -webkit-animation-timing-function: linear; */
 }
 
 
@@ -1725,9 +1881,13 @@ mat-form-field.mat-form-field {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(80deg);
+    transform: rotate(100deg);
+  }
+  70%{
+    opacity: 1;
   }
   100% {
+    opacity: 0.0;
     transform: rotate(360deg);
   }
 }
@@ -1737,9 +1897,13 @@ mat-form-field.mat-form-field {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(160deg);
+    transform: rotate(200deg);
+  }
+  70%{
+    opacity: 1;
   }
   100% {
+    opacity: 0.0;
     transform: rotate(360deg);
   }
 }
@@ -1749,9 +1913,13 @@ mat-form-field.mat-form-field {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(240deg);
+    transform: rotate(300deg);
+  }
+  70%{
+    opacity: 1;
   }
   100% {
+    opacity: 0.0;
     transform: rotate(360deg);
   }
 }
@@ -1770,17 +1938,101 @@ mat-form-field.mat-form-field {
   mat-form-field.mat-form-field {
     font-size: 18px;
   }
+
+  .galaxi-bot {
+    background-size: 300px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .tierra {
+    background-size: 70px;
+    width: 218px;
+    height: 218px;
+  }
+  
+  .luna {
+    background-size: 70px;
+    width: 218px;
+    height: 218px;
+  }
+  
+  .martes {
+    background-size: 70px;
+    width: 218px;
+    height: 218px;
+  }
+
+  .scala-out {
+    display: flex !important;
+  }
+
+  @keyframes move-right {
+    0%{
+      left: 0px;
+    }
+    60% {
+      left: 0px;
+      transform: scale(0.5);
+    }
+    100%{
+      transform: scale(0.8);
+      left: 51%;
+    }
+  }
+  
 }
-/* 
+
 @media screen and (min-width: 992px) {
 
+  .scala-out {
+    transform: scale(1);
+  }
+
+  @keyframes move-right {
+    0%{
+      left: 0px;
+    }
+    60% {
+      left: 0px;
+      transform: scale(0.8);
+    }
+    100%{
+      transform: scale(1);
+      left: 51%;
+    }
+  }
+
 }
 
+
+/* 
 @media screen and (min-width: 1200px) {
 
 }
+ */
 
 @media screen and (min-width: 1400px) {
 
+  .scala-out {
+    transform: scale(1.8);
+  }
+
+  
+  @keyframes move-right {
+    0%{
+      left: 0px;
+    }
+    60% {
+      left: 0px;
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(2);
+      left: 51%;
+    }
+  }
+
+
 }
- */
+

@@ -1,6 +1,6 @@
 <!-- <a href='https://www.freepik.es/vectores/estrella'>Vector de Estrella creado por upklyak - www.freepik.es</a> -->
 <div class="galaxy-fondo d-flex h-100vh align-items-center">
-  <div class="row mx-0 w-100">
+  <div class="row mx-0 w-100 position-relative" [ngClass]="{'z-index-99999': opacityForm == true }">
     <div class="col-md-9 col-lg-8 d-flex justify-content-center">
       <div class="px-0 w-820 bg-white br-radius-16 pt-5 fadeIn animated">
         <h1 class="text-center mb-4 fz-30 fz-sm-35 fz-md-40">Sign up</h1>
@@ -82,10 +82,27 @@
   </div>
 
 </div>
+<!-- 
 
+  <div class="container-loader" >  </div>
+  <div class="galaxi-bot">
+    <div class="tierra preloader-tierra" *ngIf="loader"></div>
+    <div class="luna preloader-luna" *ngIf="loader"></div>
+    <div class="martes preloader-martes" *ngIf="loader"></div>
+  </div> -->
 
-<div class="container-loader" *ngIf="loader">
-  <div class="tierra preloader-tierra"></div>
-  <div class="luna preloader-luna "></div>
-  <div class="martes preloader-martes "></div>
+<div class="container-galaxy overflow-hidden">
+  <div class="move-animate" *ngIf="moveAnimate">
+    <div class="galaxi-bot">
+      <div class="tierra preloader-tierra" *ngIf="loader"></div>
+      <div class="luna preloader-luna" *ngIf="loader"></div>
+      <div class="martes preloader-martes" *ngIf="loader"></div>
+    </div>
+  </div>
 </div>
+<div class="container-out">
+  <div class="scala-out" *ngIf="opacityIn">
+    <div class="galaxi-out"></div>
+  </div>
+</div>
+  <div class="container-loader" *ngIf="opacity"></div>
