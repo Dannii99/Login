@@ -1,18 +1,18 @@
 <!-- <a href='https://www.freepik.es/vectores/estrella'>Vector de Estrella creado por upklyak - www.freepik.es</a> -->
 <div class="galaxy-fondo d-flex h-100vh align-items-center">
-  <div class="row mx-0 w-100">
+  <div class="row mx-0 w-100  position-relative" [ngClass]="{'z-index-999': opacityForm == true }">
     <div class="col-md-9 col-lg-8 d-flex justify-content-center">
       <div class="px-0 w-820 bg-white br-radius-16 pt-5 fadeIn animated">
         <h1 class="text-center mb-4 fz-30 fz-sm-35 fz-md-40">Log In</h1>
-        <form  [formGroup]="loginForm">
+        <form  [formGroup]="loginForm"  (submit)="onSubmit()">
           <div class="px-3 px-md-5">
             <div class="input-group mb-3">
               <div class="row w-100 mx-0">
                 <div class="col">
                   <mat-form-field appearance="legacy" class="w-100">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                    <mat-error *ngIf="email.invalid || email.dirty">{{getErrorMessage()}}</mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -23,10 +23,11 @@
                 <div class="col">
                   <mat-form-field appearance="legacy" class="w-100">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
+                  </button>
+                  <mat-error *ngIf="password.invalid || password.dirty">You must enter a valid password</mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -35,12 +36,12 @@
     
           <div class="px-3 px-md-5 my-3">
             <a routerLink="/signUp" class="blue-1 fz-14 fz-sm-16 fz-md-18">
-                ¿No tienes cuenta? / Registrate aquí
+              You do not have an account? / Sign up here
             </a>
           </div>
 
             <div class="example-button-row d-flex justify-content-center px-3 px-md-5 py-3">
-              <button mat-raised-button color="primary" class="blue-1 w-100 fz-14 fz-sm-16 fz-md-18 py-1 py-md-3" style=" max-width: 500px;">create account</button>
+              <button mat-raised-button color="primary" class="blue-1 w-100 fz-14 fz-sm-16 fz-md-18 py-1 py-md-3" style=" max-width: 500px;">Sign in</button>
             </div>
     
         </form>
@@ -51,8 +52,18 @@
 </div>
 
 
-<div class="container-loader" *ngIf="loader">
-  <div class="tierra preloader-tierra"></div>
-  <div class="luna preloader-luna "></div>
-  <div class="martes preloader-martes "></div>
+<div class="container-galaxy overflow-hidden">
+  <div class="move-animate" *ngIf="moveAnimate">
+    <div class="galaxi-bot">
+      <div class="tierra preloader-tierra" *ngIf="loader"></div>
+      <div class="luna preloader-luna" *ngIf="loader"></div>
+      <div class="martes preloader-martes" *ngIf="loader"></div>
+    </div>
+  </div>
 </div>
+<div class="container-out">
+  <div class="scala-out" *ngIf="opacityIn">
+    <div class="galaxi-out"></div>
+  </div>
+</div>
+  <div class="container-loader" *ngIf="opacity"></div>

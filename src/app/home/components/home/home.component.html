@@ -1,1 +1,12 @@
-<p>home works!</p>
+
+<div class="py-3 px-3">
+  <button mat-raised-button color="primary" class="blue-1 w-100 fz-14 fz-sm-16 fz-md-18" style=" max-width: 200px;" (click)="logout()">Logout</button>
+</div>
+
+
+
+<div class="container-loader" *ngIf="loader">
+  <div class="tierra preloader-tierra"></div>
+  <div class="luna preloader-luna "></div>
+  <div class="martes preloader-martes "></div>
+</div>

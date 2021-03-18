@@ -29,6 +29,7 @@ export class AuthService {
   /* ================ salir ==================== */
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('expira');
   }
   /* ================================================= */
 
