@@ -1,6 +1,6 @@
 <!-- <a href='https://www.freepik.es/vectores/estrella'>Vector de Estrella creado por upklyak - www.freepik.es</a> -->
 <div class="galaxy-fondo d-flex h-100vh align-items-center">
-  <div class="row mx-0 w-100 position-relative" [ngClass]="{'z-index-99999': opacityForm == true }">
+  <div class="row mx-0 w-100 position-relative" [ngClass]="{'z-index-999': opacityForm == true }">
     <div class="col-md-9 col-lg-8 d-flex justify-content-center">
       <div class="px-0 w-820 bg-white br-radius-16 pt-5 fadeIn animated">
         <h1 class="text-center mb-4 fz-30 fz-sm-35 fz-md-40">Sign up</h1>
@@ -9,20 +9,20 @@
             <div class="input-group mb-3">
               <div class="row w-100 mx-0">
                 <div class="col">
-                  <mat-form-field appearance="legacy" class="w-100" required>
+                  <mat-form-field appearance="legacy" class="w-100">
                     <mat-label>Name</mat-label>
                     <input matInput placeholder="Enter Name" formControlName="name" required>
-                    <!-- <mat-hint>Hint</mat-hint> -->
+                    <mat-error *ngIf="name.invalid || name.dirty">You must enter a name</mat-error>
                    </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field appearance="legacy" class="w-100" required>
+                    <mat-form-field appearance="legacy" class="w-100">
                       <mat-label>Last Name</mat-label>
                       <input matInput placeholder="Enter last name" formControlName="lastName" required>
-                     <!--  <mat-hint>Hint</mat-hint> -->
-                    </mat-form-field>
+                      <mat-error *ngIf="lastName.invalid || lastName.dirty">You must enter a last name</mat-error>
+                    </mat-form-field> 
                 </div>
-              </div>
+              </div>  
             </div>
       
             <div class="input-group mb-3">
@@ -31,7 +31,7 @@
                   <mat-form-field appearance="legacy" class="w-100">
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="pat@example.com" formControlName="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    <mat-error *ngIf="email.invalid || email.dirty">{{getErrorMessage()}}</mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -45,7 +45,8 @@
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
+                  </button>
+                  <mat-error *ngIf="password.invalid || password.dirty">You must enter a valid password</mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -60,36 +61,30 @@
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <mat-error *ngIf="confirmPassword.invalid || confirmPassword.dirty">You must enter a valid password</mat-error>
                   </mat-form-field>
                 </div>
               </div>
             </div>
           </div>
-    
+          
           <div class="px-3 px-md-5 my-3">
-            <a routerLink="/" class="blue-1 fz-14 fz-sm-16 fz-md-18">
-                ¿Ya tienes cuenta? / Ingresar
+            <a routerLink="/" class="blue-1 fz-14 fz-sm-16 fz-md-18 mt-2">
+              Already have an account? / Pay in 
             </a>
           </div>
 
-            <div class="example-button-row d-flex justify-content-center px-3 px-md-5 py-3">
+          <div class="example-button-row d-flex justify-content-center px-3 px-md-5 py-3">
               <button mat-raised-button color="primary" class="blue-1 w-100 fz-14 fz-sm-16 fz-md-18 py-1 py-md-3" style=" max-width: 500px;">create account</button>
             </div>
     
         </form>
+
       </div>
     </div>
   </div>
 
 </div>
-<!-- 
-
-  <div class="container-loader" >  </div>
-  <div class="galaxi-bot">
-    <div class="tierra preloader-tierra" *ngIf="loader"></div>
-    <div class="luna preloader-luna" *ngIf="loader"></div>
-    <div class="martes preloader-martes" *ngIf="loader"></div>
-  </div> -->
 
 <div class="container-galaxy overflow-hidden">
   <div class="move-animate" *ngIf="moveAnimate">

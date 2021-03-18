@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-/* import { UsuarioModel } from '../models/usuario.model'; */
 import { map } from 'rxjs/operators'
 
 
@@ -14,14 +13,17 @@ export class AuthService {
   private apikey = 'AIzaSyCobj0xFdVemMhaG6ngVfM3Xj0jFOAQ29M';
   userToken:string;
 
+
   /* Crear nuevo usuario */
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
 
   /* Login */
  // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
-  constructor(private http: HttpClient) { 
-/*     this.leerToken(); */
+  constructor(
+    private http: HttpClient
+    ) { 
+    this.leerToken();
   }
 
   /* ================ salir ==================== */
@@ -33,12 +35,11 @@ export class AuthService {
 
 
   /* ================ ingresar  ==================== */
-/*   login( usuario:UsuarioModel ){
+  login( form ){
     const authData = {
-      email: usuario.email,
-      password: usuario.password,
+      email: form.email,
+      password: form.password,
       returnSecureToken: true
-      // ...usuario 
     }
     return this.http.post(
       `${this.url}/accounts:signInWithPassword?key=${this.apikey}`,
@@ -50,15 +51,15 @@ export class AuthService {
         return resp;
       } )
     )
-  } */
+  }
 /* ================================================= */
 
 
   /* ================ new user ==================== */
-/*   userNew( usuario:UsuarioModel ){
+  userNew( form ){
     const authData = {
-      email: usuario.email,
-      password: usuario.password,
+      email: form.email,
+      password: form.password,
       returnSecureToken: true
     }
     return this.http.post(
@@ -71,7 +72,7 @@ export class AuthService {
         return resp;
       } )
     )
-  } */
+  }
 
 
   private guardarToken( idToken: string) {

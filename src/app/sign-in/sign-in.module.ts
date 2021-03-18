@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms'
 /* materiak module */
 import { MaterialModule } from '../material/material.module'
 
+/* Error */
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+
 @NgModule({
   declarations: [SignInComponent],
   imports: [
@@ -17,6 +20,9 @@ import { MaterialModule } from '../material/material.module'
     SignInRoutingModule,
     MaterialModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
 export class SignInModule { }
